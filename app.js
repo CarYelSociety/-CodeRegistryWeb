@@ -20,8 +20,11 @@ function render() {
     list.innerHTML = "";
     codes.reverse().forEach(c => {
       const li = document.createElement("li");
-      li.innerHTML = `<strong>${c.platform}</strong> – ${c.code}<br><small>Canjeado: ${c.redeemDate}</small>
-      <button style="float:right;background:#d32f2f;color:#fff;border:none;padding:.3rem .6rem;border-radius:3px;">×</button>`;
+      li.innerHTML = `
+        <strong>${c.platform}</strong> – ${c.code}<br>
+        <small>Canjeado: ${c.redeemDate}</small>
+        <button style="float:right;background:#d32f2f;color:#fff;border:none;padding:.3rem .6rem;border-radius:3px;">×</button>
+      `;
       li.querySelector("button").onclick = () => deleteCode(c.id).then(render);
       list.appendChild(li);
     });
